@@ -1,30 +1,8 @@
 import pandas as pd
 import os
-import sys
 import re
-import ast
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 import nltk
-import sklearn
-from sklearn.cluster import KMeans
-from collections import Counter
 from tqdm import tqdm
-from nltk.sentiment import SentimentIntensityAnalyzer
-from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-from sklearn.feature_extraction.text import TfidfVectorizer
-from scipy.spatial.distance import cdist
-from pywsd.utils import lemmatize_sentence
-from nltk.stem import PorterStemmer
-from nltk.stem import WordNetLemmatizer
-from nltk import word_tokenize
-from nltk.corpus import stopwords
-from nltk.tag import pos_tag
-from wordcloud import WordCloud, ImageColorGenerator
-import scattertext as st
-from matplotlib import pyplot as plt
 
 nltk.download("averaged_perceptron_tagger")
 

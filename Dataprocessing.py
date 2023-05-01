@@ -196,6 +196,8 @@ def filter_common_words(words):
         "next",
         "met",
         "hold",
+        "president",
+        "excellency",
         "understand",
         "agreed",
         "addressed",
@@ -208,6 +210,7 @@ def filter_common_words(words):
         "time",
         "relates",
         "word",
+        "everyone",
         "precisely",
         "obviously",
         "united",
@@ -218,6 +221,7 @@ def filter_common_words(words):
         "assembly",
         "today",
         "states",
+        "something",
         "general",
         "people",
         "world",
@@ -225,6 +229,28 @@ def filter_common_words(words):
         "region",
         "international",
         "new",
+        "especially",
+        "proudly",
+        "nothing",
+        "must",
+        "u",
+        "thought",
+        "consistently",
+        "relevant",
+        "many",
+        "hopefully",
+        "substantially",
+        "ahead",
+        "substantially",
+        "however",
+        "frankly",
+        "mr",
+        "great",
+        "shall",
+        "thank",
+        "really",
+        "warm",
+        "congratulation",
     ]
     return [word for word in words if word not in common_words]
 
@@ -299,8 +325,6 @@ def country_code_cleanup(speech):
 def preprocess_speech(speech):
     """
     This function does the preprocessing
-    :param data:
-    :return:
     """
     # put all characters in lower case
     speech["Text"] = speech["Text"].str.lower()
@@ -332,8 +356,6 @@ happiness = pd.read_excel("Data/Raw/DataPanelWHR2021C2.xls", index_col=[0, 1])
 happiness = happiness_cleanup(happiness)
 
 speech = pd.read_csv("Data/Raw/raw_speeches.csv", index_col=0)
-# since it is a big dataset, let's get a subset of data
-speech = speech[speech["year"] >= 2000]
 speech = preprocess_speech(speech)
 
 # merge speech with country code dataset
@@ -347,4 +369,4 @@ speech_happiness = pd.merge(
     right_on=["year", "Country name"],
 )
 
-speech_happiness.to_csv("Data/Processed/preprocessed_dataframe.csv")
+speech_happiness.to_csv("Data/Processed/preprocessed_speech.csv")
